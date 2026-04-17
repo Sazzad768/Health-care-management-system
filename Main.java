@@ -63,9 +63,9 @@ class HydrationSystem extends HealthSystem {
     @Override
     void checkHealth(User user, double temperature) {
         if (user.getWaterIntake() < 2.0) {
-            System.out.println("💧 Warning: Drink more water!");
+            System.out.println(" Warning: Drink more water!");
         } else {
-            System.out.println("✅ Hydration level is good.");
+            System.out.println(" Hydration level is good.");
         }
     }
 }
@@ -74,9 +74,9 @@ class TemperatureSystem extends HealthSystem {
     @Override
     void checkHealth(User user, double temperature) {
         if (temperature >= 35) {
-            System.out.println("🔥 High Temperature Detected!");
+            System.out.println(" High Temperature Detected!");
         } else {
-            System.out.println("🌤️ Temperature is normal.");
+            System.out.println(" Temperature is normal.");
         }
     }
 }
@@ -87,13 +87,13 @@ interface AlertSystem {
 
 class SMSAlert implements AlertSystem {
     public void sendAlert() {
-        System.out.println("📩 SMS Alert Sent!");
+        System.out.println(" SMS Alert Sent!");
     }
 }
 
 class AppAlert implements AlertSystem {
     public void sendAlert() {
-        System.out.println("📱 App Notification Sent!");
+        System.out.println(" App Notification Sent!");
     }
 }
 
@@ -152,7 +152,7 @@ public class Main {
         }
 
         if (user instanceof ElderlyUser && temp >= 35) {
-            System.out.println("⚠️ Elderly High Risk! Stay indoors!");
+            System.out.println(" Elderly High Risk! Stay indoors!");
         }
 
         System.out.println("\n===== Summary =====");
@@ -160,7 +160,7 @@ public class Main {
         System.out.println("Age: " + user.getAge());
         System.out.println("Water Intake: " + user.getWaterIntake() + " L");
 
-        System.out.println("\n✅ Stay Safe!");
+        System.out.println("\n Stay Safe!");
 
         sc.close();
     }
