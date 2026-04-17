@@ -1,6 +1,5 @@
 import java.util.Scanner;
 
-// 🔒 Encapsulation + 🧬 Inheritance
 class User {
     protected String name;
     protected int age;
@@ -35,7 +34,6 @@ class User {
     }
 }
 
-// Different user types (Inheritance + Polymorphism)
 class StudentUser extends User {
     @Override
     void showType() {
@@ -57,12 +55,10 @@ class ElderlyUser extends User {
     }
 }
 
-// 🧩 Abstraction
 abstract class HealthSystem {
     abstract void checkHealth(User user, double temperature);
 }
 
-// Hydration System
 class HydrationSystem extends HealthSystem {
     @Override
     void checkHealth(User user, double temperature) {
@@ -74,7 +70,6 @@ class HydrationSystem extends HealthSystem {
     }
 }
 
-// Temperature System
 class TemperatureSystem extends HealthSystem {
     @Override
     void checkHealth(User user, double temperature) {
@@ -86,12 +81,10 @@ class TemperatureSystem extends HealthSystem {
     }
 }
 
-// 🎭 Interface (Bonus)
 interface AlertSystem {
     void sendAlert();
 }
 
-// Different alert types
 class SMSAlert implements AlertSystem {
     public void sendAlert() {
         System.out.println("📩 SMS Alert Sent!");
@@ -104,7 +97,6 @@ class AppAlert implements AlertSystem {
     }
 }
 
-// Main class
 public class Main {
     public static void main(String[] args) {
 
@@ -119,7 +111,6 @@ public class Main {
         int type = sc.nextInt();
         sc.nextLine();
 
-        // Inheritance selection
         if (type == 1) {
             user = new StudentUser();
         } else if (type == 2) {
@@ -146,14 +137,12 @@ public class Main {
 
         System.out.println("\n===== Health Check =====");
 
-        // Abstraction + Polymorphism
         HealthSystem h1 = new HydrationSystem();
         HealthSystem h2 = new TemperatureSystem();
 
         h1.checkHealth(user, temp);
         h2.checkHealth(user, temp);
 
-        // Alerts
         if (temp >= 35 || user.getWaterIntake() < 2.0) {
             AlertSystem alert1 = new SMSAlert();
             AlertSystem alert2 = new AppAlert();
@@ -162,12 +151,10 @@ public class Main {
             alert2.sendAlert();
         }
 
-        // Extra risk check
         if (user instanceof ElderlyUser && temp >= 35) {
             System.out.println("⚠️ Elderly High Risk! Stay indoors!");
         }
 
-        // Summary
         System.out.println("\n===== Summary =====");
         System.out.println("Name: " + user.getName());
         System.out.println("Age: " + user.getAge());
